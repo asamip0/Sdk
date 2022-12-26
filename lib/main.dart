@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return KhaltiScope(
-      publicKey: testPublicKey,
+      publicKey: '',
       enabledDebugging: true,
       builder: (context, navKey) {
         return ChangeNotifierProvider<AppPreferenceNotifier>(

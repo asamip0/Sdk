@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:khalti/khalti.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sdk/app_preference.dart';
@@ -44,6 +45,9 @@ class _HomePageState extends State<HomePage> {
       mobileReadOnly: false,
     );
     final localization = AppLocalizations.of(context)!;
+
+    KhaltiService.publicKey = 'live_public_key_2296dea938c34688963955288713a863';
+
 
     return Scaffold(
       appBar: AppBar(
@@ -380,10 +384,6 @@ class _CustomCardButton extends StatelessWidget {
       onTap: () {
         KhaltiScope.of(context).pay(
           config: config,
-          preferences: [
-            PaymentPreference.khalti,
-            PaymentPreference.eBanking,
-          ],
           onSuccess: onSuccess,
           onFailure: onFailure,
           onCancel: onCancel,
@@ -391,7 +391,6 @@ class _CustomCardButton extends StatelessWidget {
       },
       child: Material(
         color: Colors.transparent,
-
         child: Center(
           child: Card(
             child: Consumer<AppPreferenceNotifier>(
